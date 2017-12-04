@@ -1,53 +1,46 @@
 <template>
-    <div class="container">
+    <div class="s">
         <vue-particles
-        color="#a39c87"
+        color="#fff"
         :particleOpacity="1"
-        :particlesNumber="400"
+        :particlesNumber="300"
         shapeType="circle"
         :particleSize="4"
-        linesColor="#fff"
+        linesColor="#22264b"
         :linesWidth="1"
-        :lineLinked="false"
-        :lineOpacity="0.4"
+        :lineLinked="true"
+        :lineOpacity="1"
         :linesDistance="150"
         :moveSpeed="1"
-        :hoverEffect="true"
+        :hoverEffect="false"
         hoverMode="grab"
         :clickEffect="true"
         clickMode="push">
         </vue-particles>
-        <transition name="fade">
-            <div class="col-md-12" v-if="show" style="padding-left:80px; padding-top:40px;">
-                <h1 style="color:white" class="text-center"> </h1>
+        <div class="row" style="position:absolute; padding-top:180px;">
+            <div class="col-md-12">
+                <vue-typer
+                :text='["Welcome","Thank you for dropping by","Now, Lets build something great together"]'
+                :repeat='0'
+                :shuffle='false'
+                initial-action='typing'
+                :pre-type-delay='70'
+                :type-delay='70'
+                :pre-erase-delay='2000'
+                :erase-delay='50'
+                erase-style='backspace'
+                :erase-on-complete='false'
+                caret-animation='blink'
+                ></vue-typer>
             </div>
-        </transition>
-       <div class="typer-section">
-           <vue-typer
-              :text='["Welcome","Thank you for coming to my site","Now, Lets build something great together"]'
-              :repeat='0'
-              :shuffle='false'
-              initial-action='typing'
-              :pre-type-delay='70'
-              :type-delay='70'
-              :pre-erase-delay='2000'
-              :erase-delay='50'
-              erase-style='backspace'
-              :erase-on-complete='false'
-              caret-animation='blink'
-            ></vue-typer>
-       </div>
+        </div>
     </div>
 </template>
-
 <script>
 import { VueTyper } from 'vue-typer'
-
     export default {
-
         mounted() 
         {
-
             this.show = true;
             console.log('Component mounted.')
         },
@@ -60,5 +53,6 @@ import { VueTyper } from 'vue-typer'
         components: {
             VueTyper
         },
+
      } 
 </script>
